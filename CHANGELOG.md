@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Overlook-Strategy/VenturaForward_Admin-client_WebApp/compare/v1.0.0...v1.0.1) (2026-04-21)
+
+
+### Bug Fixes
+
+* relax optional RESEND_FROM_EMAIL validator and sync main ([2ff2168](https://github.com/Overlook-Strategy/VenturaForward_Admin-client_WebApp/commit/2ff2168818139c4a5fc79201c5f5a221b943d8d5))
+
 # 1.0.0 (2026-04-21)
 
 
