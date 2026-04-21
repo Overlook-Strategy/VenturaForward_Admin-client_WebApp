@@ -1,11 +1,12 @@
 export const DemoBadge = () => (
-  <div className="fixed bottom-0 right-20 z-10">
+  <div className="fixed bottom-4 right-5 z-10">
     <a
-      href="https://nextjs-boilerplate.com/pro-saas-starter-kit"
+      href="https://venturaforward.org"
+      rel="noreferrer"
+      target="_blank"
     >
-      <div className="rounded-md bg-gray-900 px-3 py-2 font-semibold text-gray-100">
-        <span className="text-gray-500">Demo of</span>
-        {' SaaS Boilerplate'}
+      <div className="vf-glass px-3 py-2 text-xs font-semibold text-white shadow-xl shadow-black/25">
+        Ventura Forward Portal
       </div>
     </a>
   </div>

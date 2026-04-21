@@ -4,73 +4,73 @@
 
 @layer base {
   :root {
-    --background: 42 33% 97%;
-    --foreground: 214 59% 12%;
+    --background: 212 52% 96%;
+    --foreground: 217 64% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 214 59% 12%;
+    --card-foreground: 217 64% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 214 59% 12%;
+    --popover-foreground: 217 64% 11%;
 
-    --primary: 214 59% 12%;
-    --primary-foreground: 42 33% 97%;
+    --primary: 214 84% 24%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 188 58% 43%;
+    --secondary: 188 82% 40%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 44 25% 93%;
-    --muted-foreground: 214 20% 35%;
+    --muted: 215 34% 90%;
+    --muted-foreground: 218 21% 35%;
 
-    --accent: 198 80% 93%;
-    --accent-foreground: 214 59% 12%;
+    --accent: 201 91% 91%;
+    --accent-foreground: 217 64% 11%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214 28% 84%;
-    --input: 214 28% 84%;
-    --ring: 188 58% 43%;
+    --border: 214 34% 82%;
+    --input: 214 34% 82%;
+    --ring: 188 82% 40%;
 
-    --brand-primary: 214 59% 12%;
-    --brand-secondary: 188 58% 43%;
-    --brand-neutral: 38 32% 89%;
+    --brand-primary: 214 84% 24%;
+    --brand-secondary: 188 82% 40%;
+    --brand-neutral: 216 32% 88%;
 
     --radius: 0.75rem;
   }
 
   .dark {
-    --background: 214 59% 12%;
-    --foreground: 42 33% 97%;
+    --background: 218 54% 7%;
+    --foreground: 210 40% 98%;
 
-    --card: 214 48% 16%;
-    --card-foreground: 42 33% 97%;
+    --card: 218 47% 10%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 214 48% 16%;
-    --popover-foreground: 42 33% 97%;
+    --popover: 218 47% 10%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 42 33% 97%;
-    --primary-foreground: 214 59% 12%;
+    --primary: 188 84% 56%;
+    --primary-foreground: 218 54% 7%;
 
-    --secondary: 188 58% 43%;
-    --secondary-foreground: 214 59% 12%;
+    --secondary: 214 84% 44%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 214 32% 23%;
-    --muted-foreground: 38 24% 79%;
+    --muted: 220 34% 17%;
+    --muted-foreground: 214 21% 73%;
 
-    --accent: 198 56% 21%;
-    --accent-foreground: 42 33% 97%;
+    --accent: 213 51% 18%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214 30% 28%;
-    --input: 214 30% 28%;
-    --ring: 188 58% 43%;
+    --border: 216 32% 26%;
+    --input: 216 32% 26%;
+    --ring: 188 84% 56%;
 
-    --brand-primary: 42 33% 97%;
-    --brand-secondary: 188 58% 43%;
-    --brand-neutral: 214 23% 26%;
+    --brand-primary: 188 84% 56%;
+    --brand-secondary: 214 84% 44%;
+    --brand-neutral: 218 31% 16%;
   }
 }
 
@@ -81,16 +81,59 @@
 
   body {
     @apply bg-background text-foreground;
-    background-image: radial-gradient(circle at top right, hsl(var(--brand-neutral) / 0.35), transparent 46%);
+    font-family: var(--font-body, 'Manrope', 'Segoe UI', sans-serif);
+    background-image:
+      radial-gradient(circle at 4% -8%, hsl(var(--brand-secondary) / 0.2), transparent 28%),
+      radial-gradient(circle at 88% 0%, hsl(var(--brand-primary) / 0.22), transparent 32%),
+      linear-gradient(160deg, hsl(var(--background)), hsl(var(--background)) 34%, hsl(var(--brand-neutral) / 0.25));
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display, 'Sora', 'Segoe UI', sans-serif);
+    letter-spacing: -0.02em;
   }
 }
 
 @layer components {
   .vf-card {
-    @apply rounded-xl border border-border/50 bg-card shadow-card;
+    @apply rounded-2xl border border-border/60 bg-card/90 shadow-card;
   }
 
   .vf-surface {
-    @apply rounded-xl border border-border/50 bg-background;
+    @apply rounded-2xl border border-border/55 bg-background/75;
   }
+
+  .vf-glass {
+    @apply rounded-2xl border border-white/15 bg-white/8 backdrop-blur-xl;
+  }
+
+  .vf-kicker {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-secondary;
+  }
+
+  .vf-grid-background {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.18) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.18) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+}
+
+@keyframes vf-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.vf-float {
+  animation: vf-float 7s ease-in-out infinite;
 }

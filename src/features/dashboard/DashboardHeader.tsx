@@ -27,22 +27,12 @@ export const DashboardHeader = (props: {
 
   return (
     <>
-      <div className="flex items-center">
-        <Link href="/dashboard" className="max-sm:hidden">
+      <div className="flex min-w-0 items-center gap-3">
+        <Link href="/dashboard" className="hidden shrink-0 lg:block">
           <Logo />
         </Link>
 
-        <svg
-          className="size-8 stroke-muted-foreground max-sm:hidden"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" />
-          <path d="M17 5 7 19" />
-        </svg>
+        <div className="hidden h-8 w-px bg-white/20 lg:block" />
 
         <OrganizationSwitcher
           organizationProfileMode="navigation"
@@ -55,16 +45,22 @@ export const DashboardHeader = (props: {
           skipInvitationScreen
           appearance={{
             elements: {
-              organizationSwitcherTrigger: 'max-w-28 sm:max-w-52',
+              organizationSwitcherTrigger: 'max-w-44 rounded-xl border border-white/25 bg-white/10 px-2 py-1 text-white backdrop-blur-sm hover:bg-white/20',
             },
           }}
         />
 
-        <nav className="ml-3 max-lg:hidden">
-          <ul className="flex flex-row items-center gap-x-3 text-lg font-medium [&_a:hover]:opacity-100 [&_a]:opacity-75">
+        <nav className="ml-1 hidden lg:block">
+          <ul className="flex flex-row items-center gap-x-1 text-sm font-medium">
             {props.menu.map(item => (
               <li key={item.href}>
-                <ActiveLink href={item.href}>{item.label}</ActiveLink>
+                <ActiveLink
+                  href={item.href}
+                  className="rounded-full px-3 py-1.5 text-white/72 transition hover:bg-white/12 hover:text-white"
+                  activeClassName="bg-cyan-300/20 text-cyan-100"
+                >
+                  {item.label}
+                </ActiveLink>
               </li>
             ))}
           </ul>
@@ -72,32 +68,28 @@ export const DashboardHeader = (props: {
       </div>
 
       <div>
-        <ul className="flex items-center gap-x-1.5 [&_li[data-fade]:hover]:opacity-100 [&_li[data-fade]]:opacity-60">
-          <li data-fade>
-            <div className="lg:hidden">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <ToggleMenuButton />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  {props.menu.map(item => (
-                    <DropdownMenuItem key={item.href} asChild>
-                      <Link href={item.href}>{item.label}</Link>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
+        <ul className="flex items-center gap-x-2">
+          <li className="lg:hidden">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <ToggleMenuButton />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="border-white/15 bg-slate-950/95 text-white backdrop-blur-xl">
+                {props.menu.map(item => (
+                  <DropdownMenuItem key={item.href} asChild>
+                    <Link href={item.href}>{item.label}</Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </li>
 
-          {/* PRO: Dark mode toggle button */}
-
-          <li data-fade>
+          <li className="rounded-full border border-white/20 bg-white/10 px-2 py-1 text-white backdrop-blur-sm">
             <LocaleSwitcher />
           </li>
 
           <li>
-            <Separator orientation="vertical" className="h-4" />
+            <Separator orientation="vertical" className="h-4 bg-white/25" />
           </li>
 
           <li>
@@ -106,7 +98,7 @@ export const DashboardHeader = (props: {
               userProfileUrl="/dashboard/user-profile"
               appearance={{
                 elements: {
-                  rootBox: 'px-2 py-1.5',
+                  rootBox: 'rounded-full border border-white/20 bg-white/10 px-1.5 py-1 backdrop-blur-sm',
                 },
               }}
             />

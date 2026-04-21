@@ -17,8 +17,9 @@ export async function generateMetadata(props: { params: { locale: string } }) {
 export default function DashboardLayout(props: { children: React.ReactNode }) {
   return (
     <>
-      <div className="shadow-md">
-        <div className="mx-auto flex max-w-screen-xl items-center justify-between px-3 py-4">
+      <div className="relative border-b border-white/15 bg-slate-950 text-white shadow-xl shadow-slate-950/50">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_6%_50%,rgba(56,189,248,0.18),transparent_26%),radial-gradient(circle_at_88%_10%,rgba(37,99,235,0.22),transparent_32%)]" />
+        <div className="relative mx-auto flex max-w-[1400px] items-center justify-between px-3 py-4 sm:px-5 lg:px-8">
           <DashboardHeader
             menu={[
               {
@@ -46,8 +47,8 @@ export default function DashboardLayout(props: { children: React.ReactNode }) {
         </div>
       </div>
 
-      <div className="min-h-[calc(100vh-72px)] bg-muted">
-        <div className="mx-auto max-w-screen-xl px-3 pb-16 pt-6">
+      <div className="min-h-[calc(100vh-72px)] bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+        <div className="mx-auto max-w-[1400px] px-3 pb-16 pt-6 sm:px-5 lg:px-8">
           {props.children}
         </div>
       </div>
