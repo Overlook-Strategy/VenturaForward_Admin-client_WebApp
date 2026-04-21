@@ -1,3 +1,10 @@
+# 1.0.0 (2026-04-21)
+
+
+### Features
+
+* implement Stripe webhook for invoice events and payment processing ([5c9bbb7](https://github.com/Overlook-Strategy/VenturaForward_Admin-client_WebApp/commit/5c9bbb746604e991604bd8eb74d6b1bff112a3f4))
+
 ## [1.7.7](https://github.com/ixartz/SaaS-Boilerplate/compare/v1.7.6...v1.7.7) (2025-12-12)
 
 
