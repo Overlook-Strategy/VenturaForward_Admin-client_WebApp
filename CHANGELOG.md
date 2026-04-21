@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Overlook-Strategy/VenturaForward_Admin-client_WebApp/compare/v1.0.1...v1.1.0) (2026-04-21)
+
+
+### Features
+
+* enhance dashboard layout and improve styling across components ([f14cac0](https://github.com/Overlook-Strategy/VenturaForward_Admin-client_WebApp/commit/f14cac084bff09683f3a2412dd1d53afa00130bc))
+
 ## [1.0.1](https://github.com/Overlook-Strategy/VenturaForward_Admin-client_WebApp/compare/v1.0.0...v1.0.1) (2026-04-21)
 
 
