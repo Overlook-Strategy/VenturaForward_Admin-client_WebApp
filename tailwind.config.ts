@@ -40,11 +40,19 @@ const config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        brand: {
+          primary: 'hsl(var(--brand-primary))',
+          secondary: 'hsl(var(--brand-secondary))',
+          neutral: 'hsl(var(--brand-neutral))',
+        },
       },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+      },
+      boxShadow: {
+        card: '0 1px 2px 0 rgb(12 26 46 / 0.08), 0 1px 3px 1px rgb(12 26 46 / 0.04)',
       },
       keyframes: {
         'accordion-down': {

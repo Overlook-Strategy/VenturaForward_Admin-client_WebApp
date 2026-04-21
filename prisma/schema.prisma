@@ -1,0 +1,157 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum MemberRole {
+  SUPER_ADMIN
+  ORG_ADMIN
+  ORG_MEMBER
+}
+
+enum PaymentStatus {
+  PAID
+  PENDING
+  OVERDUE
+}
+
+enum PartnershipPackage {
+  SHARING
+  SOCIALIZING
+  INFLUENCING
+}
+
+enum SocialSupportOption {
+  CONTENT_PRODUCTION
+  EVENT_GRAPHICS_FLYERS
+  SOCIAL_MEDIA_TRAINING
+  FULL_MEDIA_MANAGEMENT
+}
+
+model Organization {
+  id                        String               @id @db.Text
+  displayName               String               @db.Text
+  billingEmail              String?              @db.Text
+  metaBrandTag              String?              @unique(map: "meta_brand_tag_idx") @map("meta_brand_tag") @db.Text
+  monthlyAdQuota            Int                  @default(0)
+  isActive                  Boolean              @default(true)
+  stripeCustomerId          String?              @unique @map("stripe_customer_id") @db.Text
+  stripeSubscriptionId      String?              @map("stripe_subscription_id") @db.Text
+  stripeSubscriptionPriceId String?              @map("stripe_subscription_price_id") @db.Text
+  stripeSubscriptionStatus  String?              @map("stripe_subscription_status") @db.Text
+  stripeSubscriptionCurrentPeriodEnd BigInt?     @map("stripe_subscription_current_period_end")
+  members                   OrganizationMember[]
+  metaPosts                 MetaPost[]
+  payments                  Payment[]
+  monthlySummaries          MonthlySummary[]
+  clientProfile             ClientProfile?
+  createdAt                 DateTime             @default(now()) @map("created_at")
+  updatedAt                 DateTime             @updatedAt @map("updated_at")
+
+  @@map("organization")
+}
+
+model User {
+  id        String               @id @db.Text
+  email     String?              @unique @db.Text
+  members   OrganizationMember[]
+  createdAt DateTime             @default(now()) @map("created_at")
+  updatedAt DateTime             @updatedAt @map("updated_at")
+
+  @@map("user")
+}
+
+model OrganizationMember {
+  id             Int          @id @default(autoincrement())
+  organizationId String       @map("organization_id") @db.Text
+  userId         String       @map("user_id") @db.Text
+  role           MemberRole
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt      DateTime     @default(now()) @map("created_at")
+  updatedAt      DateTime     @updatedAt @map("updated_at")
+
+  @@unique([organizationId, userId], map: "organization_member_idx")
+  @@map("organization_user")
+}
+
+model MetaPost {
+  id              String        @id @db.Text
+  organizationId  String        @map("organization_id") @db.Text
+  sourceEventId   String?       @unique(map: "meta_post_source_event_idx") @map("source_event_id") @db.Text
+  postUrl         String        @map("post_url") @db.Text
+  caption         String?       @db.Text
+  postedAt        DateTime      @map("posted_at")
+  likeCount       Int           @default(0) @map("like_count")
+  commentCount    Int           @default(0) @map("comment_count")
+  impressionCount Int           @default(0) @map("impression_count")
+  engagementCount Int           @default(0) @map("engagement_count")
+  rawPayload      Json?         @map("raw_payload")
+  organization    Organization  @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  createdAt       DateTime      @default(now()) @map("created_at")
+  updatedAt       DateTime      @updatedAt @map("updated_at")
+
+  @@index([organizationId, postedAt])
+  @@map("meta_post")
+}
+
+model Payment {
+  id               String       @id @db.Text
+  organizationId   String       @map("organization_id") @db.Text
+  stripeCustomerId String?      @map("stripe_customer_id") @db.Text
+  stripeInvoiceId  String?      @unique(map: "payment_stripe_invoice_id_idx") @map("stripe_invoice_id") @db.Text
+  amountDue        Int          @default(0) @map("amount_due")
+  amountPaid       Int          @default(0) @map("amount_paid")
+  currency         String       @default("usd") @db.Text
+  status           PaymentStatus
+  dueDate          DateTime?    @map("due_date")
+  paidAt           DateTime?    @map("paid_at")
+  periodStart      DateTime?    @map("period_start")
+  periodEnd        DateTime?    @map("period_end")
+  rawPayload       Json?        @map("raw_payload")
+  organization     Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  createdAt        DateTime     @default(now()) @map("created_at")
+  updatedAt        DateTime     @updatedAt @map("updated_at")
+
+  @@index([organizationId, status])
+  @@map("payment")
+}
+
+model MonthlySummary {
+  id                   Int          @id @default(autoincrement())
+  organizationId       String       @map("organization_id") @db.Text
+  year                 Int
+  month                Int
+  postCount            Int          @map("post_count")
+  quotaTarget          Int          @map("quota_target")
+  quotaFulfilled       Boolean      @default(false) @map("quota_fulfilled")
+  paymentStatusSummary String       @map("payment_status_summary") @db.Text
+  sentToEmail          String?      @map("sent_to_email") @db.Text
+  sentAt               DateTime?    @map("sent_at")
+  organization         Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  createdAt            DateTime     @default(now()) @map("created_at")
+
+  @@unique([organizationId, year, month], map: "monthly_summary_unique_idx")
+  @@map("monthly_summary")
+}
+
+model ClientProfile {
+  id                  Int                   @id @default(autoincrement())
+  organizationId      String                @unique @map("organization_id") @db.Text
+  businessName        String                @map("business_name") @db.Text
+  mainPointOfContact  String                @map("main_point_of_contact") @db.Text
+  instagramHandle     String                @map("instagram_handle") @db.Text
+  partnershipPackage  PartnershipPackage    @map("partnership_package")
+  additionalSupport   SocialSupportOption[] @map("additional_support")
+  goals               String                @db.Text
+  completedAt         DateTime              @default(now()) @map("completed_at")
+  createdAt           DateTime              @default(now()) @map("created_at")
+  updatedAt           DateTime              @updatedAt @map("updated_at")
+  organization        Organization          @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@map("client_profile")
+}

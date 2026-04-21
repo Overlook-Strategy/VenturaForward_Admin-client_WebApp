@@ -1,75 +1,75 @@
-import { useTranslations } from 'next-intl';
+import { AdminBrandQuotaTable } from '@/features/dashboard/AdminBrandQuotaTable';
+import { ClientBillingCard } from '@/features/dashboard/ClientBillingCard';
+import { ClientPostTimeline } from '@/features/dashboard/ClientPostTimeline';
+import { getAdminDashboardData, getClientDashboardData } from '@/libs/AgencyData';
+import { getDashboardAccessContext } from '@/libs/AccessControl';
 
-import { MessageState } from '@/features/dashboard/MessageState';
-import { TitleBar } from '@/features/dashboard/TitleBar';
-import { SponsorLogos } from '@/features/sponsors/SponsorLogos';
+const EmptyStateCard = (props: { message: string; title: string }) => (
+  <div className="rounded-3xl border border-white/20 bg-white/10 p-6 backdrop-blur-xl">
+    <h2 className="text-lg font-semibold text-white">{props.title}</h2>
+    <p className="mt-2 text-sm text-white/70">{props.message}</p>
+  </div>
+);
 
-const DashboardIndexPage = () => {
-  const t = useTranslations('DashboardIndex');
+const DashboardIndexPage = async () => {
+  const access = await getDashboardAccessContext();
+  const clientData = access.orgId
+    ? await getClientDashboardData(access.orgId)
+    : null;
+
+  const adminRows = access.isSuperAdmin
+    ? await getAdminDashboardData()
+    : [];
 
   return (
-    <>
-      <TitleBar
-        title={t('title_bar')}
-        description={t('title_bar_description')}
-      />
+    <div className="relative overflow-hidden rounded-[32px] border border-white/20 bg-black p-6 text-white shadow-2xl shadow-black/40 sm:p-8">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(255,255,255,0.14),transparent_36%),radial-gradient(circle_at_90%_0%,rgba(255,255,255,0.08),transparent_32%)]" />
 
-      <MessageState
-        icon={(
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M0 0h24v24H0z" stroke="none" />
-            <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3M12 12l8-4.5M12 12v9M12 12L4 7.5" />
-          </svg>
-        )}
-        title={t('message_state_title')}
-        description={t.rich('message_state_description', {
-          code: chunks => (
-            <code className="bg-secondary text-secondary-foreground">
-              {chunks}
-            </code>
-          ),
-        })}
-        button={(
-          <>
-            <div className="mt-2 whitespace-pre text-sm font-light text-muted-foreground">
-              {t.rich('message_state_alternative', {
-                url: () => (
-                  <a
-                    className="text-blue-500 hover:text-blue-600"
-                    href="https://nextjs-boilerplate.com/pro-saas-starter-kit"
-                  >
-                    Next.js Boilerplate SaaS
-                  </a>
-                ),
-              })}
+      <div className="relative z-10 space-y-6">
+        <section className="rounded-3xl border border-white/20 bg-white/10 px-6 py-5 backdrop-blur-xl">
+          <p className="text-xs uppercase tracking-[0.2em] text-white/60">Ventura Forward</p>
+          <h1 className="mt-2 text-3xl font-semibold tracking-tight">Agency Operations Dashboard</h1>
+          <p className="mt-3 max-w-2xl text-sm text-white/75">
+            Track tagged Instagram promos, monitor payment health, and maintain monthly ad quota execution across every partner brand.
+          </p>
+        </section>
 
-              <p>
-                {t.rich('max_message', {
-                  url: () => (
-                    <a
-                      className="text-blue-500 hover:text-blue-600"
-                      href="https://nextjs-boilerplate.com/nextjs-multi-tenant-saas-boilerplate"
-                    >
-                      Next.js Boilerplate Max
-                    </a>
-                  ),
-                })}
-              </p>
-            </div>
+        {access.isSuperAdmin && <AdminBrandQuotaTable rows={adminRows} />}
 
-            <div className="mt-7">
-              <SponsorLogos />
-            </div>
-          </>
-        )}
-      />
-    </>
+        {clientData
+          ? (
+              <div className="grid gap-6 xl:grid-cols-[1.45fr_1fr]">
+                <ClientPostTimeline
+                  posts={clientData.posts.map(post => ({
+                    commentCount: post.commentCount,
+                    engagementCount: post.engagementCount,
+                    id: post.id,
+                    likeCount: post.likeCount,
+                    postUrl: post.postUrl,
+                    postedAt: post.postedAt,
+                  }))}
+                />
+                <ClientBillingCard
+                  payments={clientData.payments.map(payment => ({
+                    amountDue: payment.amountDue,
+                    amountPaid: payment.amountPaid,
+                    createdAt: payment.createdAt,
+                    currency: payment.currency,
+                    dueDate: payment.dueDate,
+                    id: payment.id,
+                    status: payment.status,
+                  }))}
+                />
+              </div>
+            )
+          : (
+              <EmptyStateCard
+                title="No active tenant selected"
+                message="Select or create an organization in the switcher to view brand-level promo and billing data."
+              />
+            )}
+      </div>
+    </div>
   );
 };
 

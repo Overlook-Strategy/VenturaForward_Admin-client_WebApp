@@ -23,6 +23,12 @@ const isProtectedRoute = createRouteMatcher([
   '/:locale/api(.*)',
 ]);
 
+const isPublicApiRoute = createRouteMatcher([
+  '/api/webhooks/meta',
+  '/api/webhooks/stripe',
+  '/api/cron/monthly-summary',
+]);
+
 export default function middleware(
   request: NextRequest,
   event: NextFetchEvent,
@@ -33,7 +39,7 @@ export default function middleware(
     || isProtectedRoute(request)
   ) {
     return clerkMiddleware(async (auth, req) => {
-      if (isProtectedRoute(req)) {
+      if (isProtectedRoute(req) && !isPublicApiRoute(req)) {
         const locale
           = req.nextUrl.pathname.match(/(\/.*)\/dashboard/)?.at(1) ?? '';
 
