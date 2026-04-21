@@ -11,7 +11,7 @@ export const Env = createEnv({
     META_WEBHOOK_VERIFY_TOKEN: z.string().min(1),
     META_APP_SECRET: z.string().optional(),
     RESEND_API_KEY: z.string().optional(),
-    RESEND_FROM_EMAIL: z.string().email().optional(),
+    RESEND_FROM_EMAIL: z.string().min(1).optional(),
     CRON_SECRET: z.string().optional(),
     SUPER_ADMIN_USER_IDS: z.string().optional(),
     BILLING_PLAN_ENV: z.enum(['dev', 'test', 'prod']),
