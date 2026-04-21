@@ -5,8 +5,8 @@ import { getAdminDashboardData, getClientDashboardData } from '@/libs/AgencyData
 import { getDashboardAccessContext } from '@/libs/AccessControl';
 
 const EmptyStateCard = (props: { message: string; title: string }) => (
-  <div className="rounded-3xl border border-white/20 bg-white/10 p-6 backdrop-blur-xl">
-    <h2 className="text-lg font-semibold text-white">{props.title}</h2>
+  <div className="vf-glass p-6 text-white">
+    <h2 className="text-lg font-semibold">{props.title}</h2>
     <p className="mt-2 text-sm text-white/70">{props.message}</p>
   </div>
 );
@@ -22,15 +22,15 @@ const DashboardIndexPage = async () => {
     : [];
 
   return (
-    <div className="relative overflow-hidden rounded-[32px] border border-white/20 bg-black p-6 text-white shadow-2xl shadow-black/40 sm:p-8">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(255,255,255,0.14),transparent_36%),radial-gradient(circle_at_90%_0%,rgba(255,255,255,0.08),transparent_32%)]" />
+    <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-slate-950 p-6 text-white shadow-2xl shadow-black/45 sm:p-8">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(56,189,248,0.12),transparent_36%),radial-gradient(circle_at_90%_0%,rgba(59,130,246,0.1),transparent_32%)]" />
 
       <div className="relative z-10 space-y-6">
-        <section className="rounded-3xl border border-white/20 bg-white/10 px-6 py-5 backdrop-blur-xl">
-          <p className="text-xs uppercase tracking-[0.2em] text-white/60">Ventura Forward</p>
-          <h1 className="mt-2 text-3xl font-semibold tracking-tight">Agency Operations Dashboard</h1>
-          <p className="mt-3 max-w-2xl text-sm text-white/75">
-            Track tagged Instagram promos, monitor payment health, and maintain monthly ad quota execution across every partner brand.
+        <section className="vf-glass px-6 py-5">
+          <p className="vf-kicker text-cyan-200">Ventura Forward</p>
+          <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Agency operations dashboard</h1>
+          <p className="mt-3 max-w-2xl text-sm text-white/72">
+            Track when each ad post went live, review invoice balances, and monitor monthly campaign delivery across every client brand.
           </p>
         </section>
 
@@ -64,8 +64,8 @@ const DashboardIndexPage = async () => {
             )
           : (
               <EmptyStateCard
-                title="No active tenant selected"
-                message="Select or create an organization in the switcher to view brand-level promo and billing data."
+                title="No active client selected"
+                message="Select or create an organization in the switcher to view post dates, payment status, and campaign delivery data."
               />
             )}
       </div>

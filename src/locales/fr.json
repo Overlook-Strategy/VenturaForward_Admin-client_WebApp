@@ -1,44 +1,44 @@
 {
   "Index": {
-    "meta_title": "SaaS Template - Le template SaaS parfait pour construire et mettre à l'échelle votre entreprise en toute simplicité.",
-    "meta_description": "Un template gratuit et open-source de landing page pour votre entreprise SaaS, construit avec React, TypeScript, Shadcn UI et Tailwind CSS."
+    "meta_title": "Ventura Forward - Portail d opérations marketing social media",
+    "meta_description": "Ventura Forward gère l onboarding, la diffusion des campagnes, le suivi des publications et la visibilité des factures dans un seul portail."
   },
   "Navbar": {
     "sign_in": "Se connecter",
-    "sign_up": "S'inscrire",
-    "product": "Produit",
-    "docs": "Docs",
-    "blog": "Blog",
-    "community": "Communauté",
-    "company": "Entreprise"
+    "sign_up": "Commencer l onboarding",
+    "product": "Services",
+    "docs": "Portail",
+    "blog": "Actualités",
+    "community": "Clients",
+    "company": "Ventura Forward"
   },
   "Hero": {
-    "follow_twitter": "Suivez @Ixartz sur Twitter",
-    "title": "Le parfait <important>SaaS template</important> pour construire et mettre à l'échelle votre entreprise en toute simplicité.",
-    "description": "Un template gratuit et open-source de landing page pour votre entreprise SaaS, construit avec React, TypeScript, Shadcn UI et Tailwind CSS.",
-    "primary_button": "Obtenir Next.js SaaS Starter Kit",
-    "secondary_button": "Mettez une étoile sur GitHub"
+    "follow_twitter": "Suivez Ventura Forward",
+    "title": "Le parfait <important>portail d operations marketing</important> pour garder les campagnes, les publications et la facturation alignées.",
+    "description": "Ventura Forward aide les équipes marketing social media à gérer l onboarding, la diffusion des campagnes et la facturation depuis un seul espace.",
+    "primary_button": "Ouvrir le portail",
+    "secondary_button": "Voir le code"
   },
   "Sponsors": {
     "title": "Sponsorisé par"
   },
   "Features": {
-    "section_subtitle": "Fonctionnalités",
-    "section_title": "Débloquer le plein potentiel du SaaS Template",
-    "section_description": "Un template gratuit et open-source de landing page pour votre entreprise SaaS, construit avec React, TypeScript, Shadcn UI et Tailwind CSS.",
-    "feature1_title": "Node.js",
-    "feature2_title": "React",
-    "feature3_title": "Tailwind CSS",
-    "feature4_title": "TypeScript",
-    "feature5_title": "Shadcn UI",
-    "feature6_title": "ESLint",
-    "feature_description": "Un template gratuit et open-source de landing page pour votre entreprise SaaS, construit avec React, TypeScript, Shadcn UI et Tailwind CSS."
+    "section_subtitle": "Services",
+    "section_title": "Tout ce qu il faut pour gérer un programme client Ventura Forward",
+    "section_description": "Un portail d operations brandé pour les équipes de marketing social media et leurs clients.",
+    "feature1_title": "Onboarding",
+    "feature2_title": "Campagnes",
+    "feature3_title": "Facturation",
+    "feature4_title": "Reporting",
+    "feature5_title": "Portail client",
+    "feature6_title": "Ops admin",
+    "feature_description": "Un seul espace pour l onboarding, la publication des ads, la visibilité des factures et la revue interne."
   },
   "Pricing": {
-    "section_subtitle": "Fonctionnalités",
-    "section_title": "Débloquer le plein potentiel du SaaS Template",
-    "section_description": "Un template gratuit et open-source de landing page pour votre entreprise SaaS, construit avec React, TypeScript, Shadcn UI et Tailwind CSS.",
-    "button_text": "Démarrer"
+    "section_subtitle": "Offres",
+    "section_title": "Un support flexible pour des portefeuilles clients en croissance",
+    "section_description": "Utilisez Ventura Forward comme portail léger ou comme espace complet d operations d agence.",
+    "button_text": "Choisir l offre"
   },
   "PricingPlan": {
     "free_plan_name": "Gratuit",
@@ -61,19 +61,19 @@
     "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam enim dui, id consequat turpis ullamcorper ac. Mauris id quam dolor. Nullam eu egestas turpis. Proin risus elit, sollicitudin in mi a, accumsan euismod turpis. In euismod mi sed diam tristique hendrerit."
   },
   "CTA": {
-    "title": "Vous êtes prêt?",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "button_text": "Obtenir Next.js SaaS Starter Kit"
+    "title": "Prêt à remplacer le boilerplate ?",
+    "description": "Lancez Ventura Forward avec un portail que vos clients utiliseront vraiment.",
+    "button_text": "Ouvrir Ventura Forward"
   },
   "Footer": {
-    "product": "Produit",
-    "docs": "Docs",
-    "blog": "Blog",
-    "community": "Communauté",
-    "company": "Entreprise",
+    "product": "Services",
+    "docs": "Portail",
+    "blog": "Actualités",
+    "community": "Clients",
+    "company": "Ventura Forward",
     "terms_of_service": "Conditions d'utilisation",
     "privacy_policy": "Politique de confidentialité",
-    "footer_text": "© {year} {name}. Fait avec <author></author>."
+    "footer_text": "© {year} {name}. Construit avec <author></author>."
   },
   "ProtectFallback": {
     "not_enough_permission": "Vous n'avez pas les permissions pour effectuer cette action"
@@ -94,17 +94,17 @@
     "settings": "Réglages"
   },
   "Dashboard": {
-    "meta_title": "Tableau de bord du SaaS Template",
-    "meta_description": "Un template gratuit et open-source de landing page pour votre entreprise SaaS, construit avec Next.js, TypeScript, Shadcn UI et Tailwind CSS."
+    "meta_title": "Tableau de bord Ventura Forward",
+    "meta_description": "Tableau de bord des opérations pour les clients et l équipe interne de Ventura Forward."
   },
   "DashboardIndex": {
     "title_bar": "Tableau de bord",
-    "title_bar_description": "Bienvenue sur votre tableau de bord",
-    "message_state_title": "C'est parti",
+    "title_bar_description": "Bienvenue chez Ventura Forward",
+    "message_state_title": "C est parti",
     "message_state_description": "Vous pouvez personnaliser cette page en modifiant le fichier dans <code>dashboard/page.tsx</code>",
-    "message_state_button": "Mettez une étoile sur GitHub",
-    "message_state_alternative": "Besoin de fonctionnalités avancées ? Next.js 16 & React 19, Multi-tenancy & Équipes, Rôles & Permissions, Shadcn UI,\nTypesafety de bout en bout avec oRPC, Paiement Stripe, Mode clair / sombre. Essayez <url></url>.",
-    "max_message": "Ou, besoin d'une pile d'authentification auto-hébergée (Better Auth) ? Essayez <url></url>."
+    "message_state_button": "Ouvrir le portail",
+    "message_state_alternative": "Besoin de fonctionnalités avancées ? Ventura Forward prend en charge le multi-tenant, les rôles, les paiements et les rapports clients.",
+    "max_message": "Ou, besoin d'une pile d'authentification auto-hébergée ? Essayez <url></url>."
   },
   "UserProfile": {
     "title_bar": "Profil utilisateur",

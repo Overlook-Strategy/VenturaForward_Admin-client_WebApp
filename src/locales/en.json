@@ -1,44 +1,44 @@
 {
   "Index": {
-    "meta_title": "SaaS Template - The perfect SaaS template to build and scale your business with ease.",
-    "meta_description": "A free and open-source landing page template for your SaaS business, built with React, TypeScript, Shadcn UI, and Tailwind CSS."
+    "meta_title": "Ventura Forward - Social media marketing operations portal",
+    "meta_description": "Ventura Forward manages client onboarding, campaign delivery, ad post tracking, and invoice visibility in one operations portal."
   },
   "Navbar": {
     "sign_in": "Sign In",
-    "sign_up": "Sign Up",
-    "product": "Product",
-    "docs": "Docs",
-    "blog": "Blog",
-    "community": "Community",
-    "company": "Company"
+    "sign_up": "Start Onboarding",
+    "product": "Services",
+    "docs": "Portal",
+    "blog": "Updates",
+    "community": "Clients",
+    "company": "Ventura Forward"
   },
   "Hero": {
-    "follow_twitter": "Follow @Ixartz on Twitter",
-    "title": "The perfect <important>SaaS template</important> to build and scale your business with ease.",
-    "description": "A free and open-source landing page template for your SaaS business, built with React, TypeScript, Shadcn UI, and Tailwind CSS.",
-    "primary_button": "Get Next.js SaaS Starter Kit",
-    "secondary_button": "Star on GitHub"
+    "follow_twitter": "Follow Ventura Forward",
+    "title": "The perfect <important>marketing ops portal</important> to keep campaigns, posts, and invoices aligned.",
+    "description": "Ventura Forward helps social media marketing teams run intake, campaign delivery, and billing from one workspace.",
+    "primary_button": "Open Portal",
+    "secondary_button": "View Source"
   },
   "Sponsors": {
     "title": "Sponsored by"
   },
   "Features": {
-    "section_subtitle": "Features",
-    "section_title": "Unlock the Full Potential of the SaaS Template",
-    "section_description": "A free and open-source landing page template for your SaaS business, built with React, TypeScript, Shadcn UI, and Tailwind CSS.",
-    "feature1_title": "Node.js",
-    "feature2_title": "React",
-    "feature3_title": "Tailwind CSS",
-    "feature4_title": "TypeScript",
-    "feature5_title": "Shadcn UI",
-    "feature6_title": "ESLint",
-    "feature_description": "A free and open-source landing page template for your SaaS business, built with React, TypeScript, Shadcn UI, and Tailwind CSS."
+    "section_subtitle": "Services",
+    "section_title": "Everything Ventura Forward needs to run a client program well",
+    "section_description": "A branded operations portal for social media marketing teams and their clients.",
+    "feature1_title": "Intake",
+    "feature2_title": "Campaigns",
+    "feature3_title": "Billing",
+    "feature4_title": "Reporting",
+    "feature5_title": "Client Portal",
+    "feature6_title": "Admin Ops",
+    "feature_description": "One workspace for onboarding, ad posting, billing visibility, and internal review."
   },
   "Pricing": {
-    "section_subtitle": "Features",
-    "section_title": "Unlock the Full Potential of the SaaS Template",
-    "section_description": "A free and open-source landing page template for your SaaS business, built with React, TypeScript, Shadcn UI, and Tailwind CSS.",
-    "button_text": "Get Started"
+    "section_subtitle": "Plans",
+    "section_title": "Flexible support for growing client portfolios",
+    "section_description": "Use Ventura Forward as a lightweight portal or a full agency operations workspace.",
+    "button_text": "Choose plan"
   },
   "PricingPlan": {
     "free_plan_name": "Free",
@@ -61,19 +61,19 @@
     "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam enim dui, id consequat turpis ullamcorper ac. Mauris id quam dolor. Nullam eu egestas turpis. Proin risus elit, sollicitudin in mi a, accumsan euismod turpis. In euismod mi sed diam tristique hendrerit."
   },
   "CTA": {
-    "title": "You are ready?",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "button_text": "Get Next.js SaaS Starter Kit"
+    "title": "Ready to replace the boilerplate?",
+    "description": "Launch Ventura Forward with a portal your clients will actually use.",
+    "button_text": "Open Ventura Forward"
   },
   "Footer": {
-    "product": "Product",
-    "docs": "Docs",
-    "blog": "Blog",
-    "community": "Community",
-    "company": "Company",
+    "product": "Services",
+    "docs": "Portal",
+    "blog": "Updates",
+    "community": "Clients",
+    "company": "Ventura Forward",
     "terms_of_service": "Terms Of Service",
     "privacy_policy": "Privacy Policy",
-    "footer_text": "© {year} {name}. Made with <author></author>."
+    "footer_text": "© {year} {name}. Built with <author></author>."
   },
   "ProtectFallback": {
     "not_enough_permission": "You do not have the permissions to perform this action"
@@ -94,17 +94,17 @@
     "settings": "Settings"
   },
   "Dashboard": {
-    "meta_title": "SaaS Template Dashboard",
-    "meta_description": "A free and open-source landing page template for your SaaS business, built with Next.js, TypeScript, Shadcn UI, and Tailwind CSS."
+    "meta_title": "Ventura Forward Dashboard",
+    "meta_description": "Agency operations dashboard for Ventura Forward clients and internal teams."
   },
   "DashboardIndex": {
     "title_bar": "Dashboard",
-    "title_bar_description": "Welcome to your dashboard",
-    "message_state_title": "Let's get started",
+    "title_bar_description": "Welcome to Ventura Forward",
+    "message_state_title": "Let’s get started",
     "message_state_description": "You can customize this page by editing the file at <code>dashboard/page.tsx</code>",
-    "message_state_button": "Star on GitHub",
-    "message_state_alternative": "Need advanced features? Next.js 16 & React 19, Multi-tenancy & Teams, Roles & Permissions, Shadcn UI,\nEnd-to-End Typesafety with oRPC, Stripe Payment, Light / Dark mode. Try <url></url>.",
-    "max_message": "Or, need a Self-hosted auth stack (Better Auth)? Try <url></url>."
+    "message_state_button": "Open portal",
+    "message_state_alternative": "Need advanced features? Ventura Forward supports multi-tenancy, roles, payments, and client reporting.",
+    "max_message": "Need a self-hosted auth stack? Try <url></url>."
   },
   "UserProfile": {
     "title_bar": "User Profile",

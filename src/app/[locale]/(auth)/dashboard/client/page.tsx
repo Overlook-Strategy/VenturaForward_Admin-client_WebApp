@@ -9,10 +9,10 @@ const ClientDashboardPage = async () => {
 
   if (!access.orgId) {
     return (
-      <div className="rounded-3xl border border-white/20 bg-black p-6 text-white">
-        <h1 className="text-2xl font-semibold">No organization selected</h1>
+      <div className="vf-glass p-6 text-white">
+        <h1 className="text-2xl font-semibold">No client selected</h1>
         <p className="mt-2 text-sm text-white/70">
-          Select a partner brand organization to load promo and billing data.
+          Select a Ventura Forward client organization to load post history and billing status.
         </p>
       </div>
     );
@@ -22,8 +22,8 @@ const ClientDashboardPage = async () => {
 
   if (!data) {
     return (
-      <div className="rounded-3xl border border-white/20 bg-black p-6 text-white">
-        <h1 className="text-2xl font-semibold">Organization not configured</h1>
+      <div className="vf-glass p-6 text-white">
+        <h1 className="text-2xl font-semibold">Client profile not configured</h1>
         <p className="mt-2 text-sm text-white/70">
           No dashboard profile is saved for this organization yet.
         </p>
@@ -33,8 +33,8 @@ const ClientDashboardPage = async () => {
 
   if (!data.organization) {
     return (
-      <div className="rounded-3xl border border-white/20 bg-black p-6 text-white">
-        <h1 className="text-2xl font-semibold">Organization missing</h1>
+      <div className="vf-glass p-6 text-white">
+        <h1 className="text-2xl font-semibold">Client record missing</h1>
         <p className="mt-2 text-sm text-white/70">
           The selected organization could not be loaded.
         </p>
@@ -46,10 +46,10 @@ const ClientDashboardPage = async () => {
     return (
       <div className="space-y-5">
         <div className="vf-card p-5">
-          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Onboarding Required</p>
+          <p className="vf-kicker">Onboarding required</p>
           <h1 className="mt-2 text-2xl font-semibold text-foreground">Complete client intake</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Fill out your Yo Social Media and Ventura Forward services profile before entering the dashboard.
+            Fill out your Ventura Forward services profile before entering the dashboard.
           </p>
         </div>
         <ClientIntakeForm
@@ -62,11 +62,14 @@ const ClientDashboardPage = async () => {
   }
 
   return (
-    <div className="vf-card p-6">
-      <div className="mb-5">
-        <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Client Workspace</p>
-        <h1 className="mt-2 text-3xl font-semibold text-foreground">{data.organization.displayName}</h1>
-      </div>
+    <div className="space-y-6">
+      <section className="vf-glass p-6 text-white">
+        <p className="vf-kicker text-cyan-200">Client workspace</p>
+        <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">{data.organization.displayName}</h1>
+        <p className="mt-3 max-w-2xl text-sm text-white/72">
+          This view shows when ads were posted, which invoices are open, and what Ventura Forward has queued next.
+        </p>
+      </section>
 
       <div className="grid gap-6 xl:grid-cols-[1.45fr_1fr]">
         <ClientPostTimeline

@@ -32,10 +32,11 @@ export const AdminBrandQuotaTable = (props: {
   rows: AdminBrandRow[];
 }) => {
   return (
-    <section className="rounded-3xl border border-white/20 bg-white/10 p-6 backdrop-blur-xl">
+    <section className="vf-glass p-6 text-white">
       <div className="mb-5 flex items-end justify-between gap-4">
         <div>
-          <h2 className="text-xl font-semibold text-white">Brand Operations</h2>
+          <p className="vf-kicker text-cyan-200">Agency ops</p>
+          <h2 className="mt-2 text-xl font-semibold">Brand operations</h2>
           <p className="text-sm text-white/70">Global view across all active client organizations.</p>
         </div>
       </div>

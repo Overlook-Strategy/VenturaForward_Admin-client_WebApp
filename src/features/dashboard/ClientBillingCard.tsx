@@ -47,17 +47,20 @@ export const ClientBillingCard = (props: {
   const openInvoices = props.payments.filter(payment => payment.status !== 'PAID');
 
   return (
-    <section className="rounded-3xl border border-white/20 bg-white/10 p-6 backdrop-blur-xl">
-      <div className="mb-4 flex items-center justify-between">
-        <h2 className="text-xl font-semibold text-white">Billing</h2>
-        <span className="rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.14em] text-white/70">
+    <section className="vf-glass p-6 text-white">
+      <div className="mb-4 flex items-center justify-between gap-3">
+        <div>
+          <p className="vf-kicker text-cyan-200">Financials</p>
+          <h2 className="mt-2 text-xl font-semibold">Invoices and payments due</h2>
+        </div>
+        <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.14em] text-white/70">
           {openInvoices.length} open
         </span>
       </div>
 
       {!props.payments.length && (
         <div className="rounded-2xl border border-white/10 bg-black/20 p-5 text-sm text-white/75">
-          No Stripe invoices are synced yet.
+          No invoices have been synced yet.
         </div>
       )}
 
@@ -65,7 +68,7 @@ export const ClientBillingCard = (props: {
         {props.payments.slice(0, 6).map(payment => (
           <article
             key={payment.id}
-            className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3"
+            className="rounded-2xl border border-white/10 bg-slate-950/55 px-4 py-3"
           >
             <div className="mb-2 flex items-center justify-between">
               <p className="text-sm font-medium text-white/90">Invoice {payment.id}</p>

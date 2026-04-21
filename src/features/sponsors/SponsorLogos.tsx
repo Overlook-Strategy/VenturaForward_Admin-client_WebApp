@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { LogoCloud } from '@/features/landing/LogoCloud';
 
 export const SponsorLogos = () => (
-  <LogoCloud text="Sponsored by">
+  <LogoCloud text="Supported by">
     <a
-      href="https://clerk.com?utm_source=github&utm_medium=sponsorship&utm_campaign=nextjs-boilerplate"
+      href="https://clerk.com"
       target="_blank"
       rel="noopener"
     >
@@ -90,16 +90,11 @@ export const SponsorLogos = () => (
     </a>
 
     <a
-      href="https://nextjs-boilerplate.com/pro-saas-starter-kit"
+      href="https://venturaforward.org"
       target="_blank"
       rel="noopener"
     >
-      <Image
-        src="/assets/images/nextjs-boilerplate-saas.png"
-        alt="Nextjs SaaS Boilerplate"
-        width="128"
-        height="30"
-      />
+      <span className="inline-flex items-center rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm font-semibold text-foreground">Ventura Forward</span>
     </a>
   </LogoCloud>
 );

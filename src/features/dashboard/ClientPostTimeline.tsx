@@ -19,17 +19,20 @@ export const ClientPostTimeline = (props: {
   posts: ClientPost[];
 }) => {
   return (
-    <section className="rounded-3xl border border-white/20 bg-white/10 p-6 backdrop-blur-xl">
-      <div className="mb-4 flex items-center justify-between">
-        <h2 className="text-xl font-semibold text-white">Instagram Promos</h2>
-        <span className="rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.14em] text-white/70">
-          Last 20 posts
+    <section className="vf-glass p-6 text-white">
+      <div className="mb-4 flex items-center justify-between gap-3">
+        <div>
+          <p className="vf-kicker text-cyan-200">Campaign delivery</p>
+          <h2 className="mt-2 text-xl font-semibold">Ad post timeline</h2>
+        </div>
+        <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.14em] text-white/70">
+          Latest 20 posts
         </span>
       </div>
 
       {!props.posts.length && (
         <div className="rounded-2xl border border-white/10 bg-black/20 p-5 text-sm text-white/75">
-          No tagged promo posts have been synced yet.
+          No ad posts have been synced yet.
         </div>
       )}
 
@@ -37,19 +40,19 @@ export const ClientPostTimeline = (props: {
         {props.posts.map(post => (
           <article
             key={post.id}
-            className="group rounded-2xl border border-white/15 bg-black/20 p-4 transition hover:border-white/35 hover:bg-black/30"
+            className="group rounded-2xl border border-white/10 bg-slate-950/55 p-4 transition hover:border-cyan-200/35 hover:bg-slate-950/75"
           >
             <div className="mb-2 flex items-center justify-between">
               <span className="text-xs uppercase tracking-[0.14em] text-white/60">
                 {formatDate(post.postedAt)}
               </span>
               <a
-                className="text-xs font-medium text-white/80 underline-offset-4 hover:text-white hover:underline"
+                className="text-xs font-medium text-cyan-100 underline-offset-4 hover:text-white hover:underline"
                 href={post.postUrl}
                 rel="noreferrer"
                 target="_blank"
               >
-                View post
+                Open post
               </a>
             </div>
 
